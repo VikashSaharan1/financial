@@ -1,0 +1,119 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    vertical-align: baseline;
+
+}
+h1{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+/*---------- Organization Components css -------------*/
+
+.profile{
+    width: 100%;
+    float: left;
+}
+.profile h1{
+    font: 800 30px / 45px Plus Jakarta Sans;
+    padding: 20px 0px 0;
+    text-align: center;
+}
+.container{
+    width: 700px;
+    margin: auto;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.col-12{width: 100%;}
+
+.form-group{
+    float: left;
+}
+.form-group label{
+    width: 100%;
+    float: left;
+    font-size: 15px;
+    color: #222222;
+    vertical-align: baseline;
+    padding-top: 10px;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 5px;
+}
+.form-group input{
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #ccc;
+    color: #000;
+    border-radius: 3px;
+}
+.form-group select{
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #ccc;
+    color: #000;
+    border-radius: 3px;
+}
+.profile-orgn{
+    background-color: #fff;
+    padding: 0px 34px 0px 34px;
+    margin-top: 50px;
+    border-radius: 17px;
+}
+
+.form-group textarea{
+    height: 150px;
+    padding: 5px;
+    font-size: 15px;
+    background-color: #fff ;
+    width: 100%;
+    border: 1px solid #ccc;
+    color: #000;
+    border-radius: 3px;resize: none;
+}
+.submits {
+    text-align: center;
+    margin: 50px 0;
+}
+input[type="submit"]{
+    width: auto;
+    text-align: center;
+    padding: 10px 35px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #007ace;
+    cursor: pointer;
+    font-weight: 400;
+    color: #fff;
+    background: #007ace;
+    margin-top: 30px;
+}
+input[type="submit"]:hover{
+    background: #f24080;
+    border-color: #f24080;
+    
+}
