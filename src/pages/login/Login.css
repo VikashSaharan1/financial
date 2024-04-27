@@ -1,0 +1,15 @@
+
+
+.login-page-main-container {
+  width: 100%;
+  display: flex;
+
+}
+
+.login-page-main-container > div {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,14 +1,19 @@
 import React from 'react'
+import './App.css';
 import './global.css';
-import Customer from './Compont/Customer';
+import { Home, Login } from './pages';
+import { Header, Sidebar } from './template';
 
 function App() {
 
   return (
-    <>
-    <Customer />
-      
-    </>
+    <div className='main-container'>
+      <div className='sidebar-container'><Sidebar /></div>
+      <div className='content-container'>
+        <Header />
+        <Home />
+      </div>
+    </div>
   )
 }
 

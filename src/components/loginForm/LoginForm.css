@@ -1,0 +1,66 @@
+
+.login-form-main-container {
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+}
+
+
+.login-form-main-container > .l-f-m-c-inner {
+  min-width: 300px;
+  max-width: 500px;
+  width: 50%;
+  padding: 50px 20px;
+  box-shadow: 0px 0px 16px 0px #00000030;
+  border-radius: 10px;
+}
+
+.login-form-main-container > .l-f-m-c-inner > section {
+  text-align: center;
+}
+
+.login-form-main-container > .l-f-m-c-inner > section > h3 {
+  margin: 1rem 0; 
+}
+
+.login-form-main-container > .l-f-m-c-inner > form {
+  display: grid;
+}
+
+.login-form-main-container > .l-f-m-c-inner > form > input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(217 236 255);
+  border: 0;
+  outline-color: rgb(142 199 255);
+  margin-bottom: 14px;
+}
+
+.login-form-main-container > .l-f-m-c-inner > form > label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 6px;
+}
+
+.login-form-main-container > .l-f-m-c-inner > form > a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  color: #007bc5;
+  float: right;
+  text-align: end;
+}
+
+.login-form-main-container > .l-f-m-c-inner > form > button {
+  margin: 1rem 0;
+  padding: 10px;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  background-color: #1d51ff;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}

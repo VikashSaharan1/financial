@@ -1,0 +1,45 @@
+
+
+.sidebar-main-container {
+  width: 250px;
+  height: 100vh;
+  /* background-color: aquamarine; */
+  border: 1px solid black;
+  z-index: 1;
+  position: relative;
+  background-color: white;
+}
+
+.sidebar-main-container .s-m-c-inner {
+  padding: 0 14px;
+}
+
+.logo-in-sidebar {
+  margin: 2rem 0;
+}
+
+.profile-view-in-sidebar {
+  margin: 1rem 0;
+}
+
+.sidebar-elements > div {
+  padding: 8px 0;
+  display: flex;
+  gap: 14px;
+  cursor: pointer;
+  margin: 8px 0;
+}
+
+.sidebar-elements > div > div {
+  width: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-elements > div > div > i {
+  font-size: 20px;
+}
+
+.sidebar-elements > div > span {
+  color: rgb(78, 78, 78);
+}

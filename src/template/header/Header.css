@@ -1,0 +1,14 @@
+
+
+.header-main-container {
+  margin: 2rem 0;
+}
+
+.header-main-container .h-m-c-inner .left-side-content span {
+  margin-left: -15px;
+  margin-right: 14px;
+}
+
+.header-main-container .h-m-c-inner .left-side-content span svg {
+  transform: rotate(-15deg);
+}

@@ -1,0 +1,10 @@
+
+
+.main-container {
+  display: flex;
+}
+
+
+.main-container .content-container {
+  width: -webkit-fill-available;
+}

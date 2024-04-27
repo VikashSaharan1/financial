@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Home",
+    "icon": "fa-solid fa-house",
+    "more": false
+  },
+  {
+    "id": 2,
+    "name": "Engage",
+    "icon": "fa-solid fa-podcast",
+    "more": false
+  },
+  {
+    "id": 3,
+    "name": "ToDo",
+    "icon": "fa-solid fa-inbox",
+    "more": true
+  },
+  {
+    "id": 4,
+    "name": "Salary",
+    "icon": "fa-solid fa-hand-holding-dollar",
+    "more": true
+  },
+  {
+    "id": 5,
+    "name": "Leave",
+    "icon": "fa-regular fa-calendar",
+    "more": true
+  },
+  {
+    "id": 6,
+    "name": "Attendance",
+    "icon": "fa-solid fa-check-to-slot",
+    "more": true
+  },
+  {
+    "id": 7,
+    "name": "Document Center",
+    "icon": "fa-solid fa-book",
+    "more": false
+  },
+  {
+    "id": 8,
+    "name": "People",
+    "icon": "fa-solid fa-user-group",
+    "more": false
+  },
+  {
+    "id": 9,
+    "name": "Helpdesk",
+    "icon": "fa-solid fa-circle-info",
+    "more": false
+  },
+  {
+    "id": 10,
+    "name": "Workflow Delegates",
+    "icon": "fa-brands fa-nfc-symbol",
+    "more": false
+  }
+]
