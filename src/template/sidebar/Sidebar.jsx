@@ -18,6 +18,11 @@ const Sidebar = () => {
                     <i className={elem.icon}></i>
                   </div>
                   <span>{elem.name}</span>
+                  {
+                    elem.more && <span className='down-arrow'>
+                      <i class="fa-solid fa-chevron-down"></i>
+                    </span>
+                  }
                 </div>
               )
             })

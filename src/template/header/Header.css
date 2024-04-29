@@ -1,7 +1,13 @@
 
 
 .header-main-container {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
+}
+
+.header-main-container .h-m-c-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-main-container .h-m-c-inner .left-side-content span {
@@ -11,4 +17,33 @@
 
 .header-main-container .h-m-c-inner .left-side-content span svg {
   transform: rotate(-15deg);
+  margin-bottom: -6px;
+}
+
+.header-main-container .h-m-c-inner .right-side-content {
+  margin-right: 12px;
+}
+
+.header-main-container .h-m-c-inner .right-side-content .r-s-c-inner {
+  display: flex;
+  gap: 14px;
+}
+
+.header-main-container .h-m-c-inner .right-side-content .r-s-c-inner > span {
+  cursor: pointer;;
+}
+
+.header-main-container .h-m-c-inner .right-side-content .r-s-c-inner > span:nth-child(2) {
+  position: relative;
+}
+
+.h-m-c-inner .right-side-content .r-s-c-inner > span:nth-child(2) > i:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  background-color: #ee0000;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: -1px;
 }

@@ -7,4 +7,5 @@
 
 .main-container .content-container {
   width: -webkit-fill-available;
+  background-color: #f4f4f4;
 }
