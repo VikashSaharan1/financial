@@ -1,0 +1,42 @@
+
+
+ .add-customer-main-container {
+  max-width: 500px;
+  min-width: 300px;
+  padding: 2rem;
+  margin: 4rem auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 24px 0px #00000020;
+}
+
+.add-customer-main-container > form > div > label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5a5a5a;
+  margin-bottom: 6px;
+}
+
+.add-customer-main-container > form > div > input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(217 236 255);
+  border: 0;
+  outline-color: rgb(142 199 255);
+  margin-bottom: 14px;
+  margin-top: 4px;
+}
+
+.add-customer-main-container > form > button {
+  margin: 1rem 0;
+  padding: 10px;
+  border: 0;
+  outline: none;
+  border-radius: 5px;
+  background-color: #1d51ff;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+}

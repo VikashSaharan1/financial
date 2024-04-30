@@ -9,6 +9,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Customer from './pages/customer/Customer';
 import AddCustomer from './pages/customer/AddCustomer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CustomerFiles from './pages/customer/CustomerFiles';
+import CustomerCheques from './pages/customer/CustomerCheques';
 
 function App() {
 
@@ -16,12 +19,25 @@ function App() {
     <div className='main-container'>
       <div className='sidebar-container'><Sidebar /></div>
       <div className='content-container'>
+
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/addagent' element={<AddAgent/>} />
+            <Route path='/agentlist' element={<Agent/>} />
+            <Route path='/addcustomer' element={<AddCustomer/>} />
+            <Route path='/customerlist' element={<Customer/>} />
+            <Route path='/customerfiles' element={<CustomerFiles/>} />
+            <Route path='/customercheques' element={<CustomerCheques/>} />
+          </Routes>
+        </BrowserRouter>
         {/* <Header />
         <Home /> */}
-        <AddAgent />
+        {/* <AddAgent />
         <Agent/>
         <AddCustomer />
-        <Customer />
+        <Customer /> */}
       </div>
       <ToastContainer />
     </div>

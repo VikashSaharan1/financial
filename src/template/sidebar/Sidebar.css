@@ -8,10 +8,13 @@
   z-index: 1;
   position: relative;
   background-color: white;
+  position: relative;
 }
 
 .sidebar-main-container .s-m-c-inner {
   padding: 0 14px;
+  position: fixed;
+  width: inherit;
 }
 
 .logo-in-sidebar {

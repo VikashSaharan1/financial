@@ -2,6 +2,7 @@ import React, { useEffect, useState} from 'react'
 import api from '../../utils/api';
 import validateFields from '../../utils/validation';
 import { showToastMessage } from '../../components';
+import './AddCustomer.css';
 
 function AddCustomer() {
     const [customer, setCustomer] = useState({
@@ -50,10 +51,10 @@ function AddCustomer() {
         setCustomer({...customer, [keyName]: val});
     };
   return (
-    <div>
+    <div className='add-customer-main-container'>
         <form onSubmit={e => submitAgent(e)}>
             <div>
-                <label>Agent Name</label>
+                <label>Customer Name</label>
                 <input type='text' name="customer_name" id="customer_name" required value={customer.customer_name} onChange={event => handleChange(event, 'customer_name')}  />
             </div>
             <div>
