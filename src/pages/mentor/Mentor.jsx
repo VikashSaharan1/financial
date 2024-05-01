@@ -26,8 +26,8 @@ const Mentor = () => {
 
       //   console.log(validateFields(fields)); // Output: true
       if (validateFields(fields)) {
-        await api.post('/mentor', mentor).then(async (resp) => {
-            showToastMessage("Mentor SuccessFully saved", "success");
+        await api.post('/mentors', mentor).then(async (resp) => {
+          showToastMessage("Mentor SuccessFully saved", "success");
         });
       }
 
@@ -42,6 +42,21 @@ const Mentor = () => {
     let val = event.target.value;
     setMentor({ ...mentor, [keyName]: val });
   };
+
+  const [customers, setCustomers] = useState([]);
+  const [agents, setAgents] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await api.get("/customers");
+      setCustomers(response.data);
+      const response1 = await api.get("/agents");
+      setAgents(response.data);
+    };
+    fetchData();
+  }, [])
+
+  console.log("customers: ", customers)
+  console.log("agents: ", agents)
 
   return (
     <div className='add-customer-main-container'>
