@@ -12,6 +12,7 @@ import AddCustomer from './pages/customer/AddCustomer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CustomerFiles from './pages/customer/CustomerFiles';
 import CustomerCheques from './pages/customer/CustomerCheques';
+import Mentor from './pages/mentor/Mentor';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
             <Route path='/customerlist' element={<Customer/>} />
             <Route path='/customerfiles' element={<CustomerFiles/>} />
             <Route path='/customercheques' element={<CustomerCheques/>} />
+            <Route path='/mentor' element={<Mentor/>} />
           </Routes>
         </BrowserRouter>
         {/* <Header />
