@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import './global.css';
 import { Home, Login, PageNotFound } from './pages';
@@ -18,39 +18,36 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   return (
     <div className='main-container'>
-      
-      <div className='content-container'>
 
-        <BrowserRouter>
+      <BrowserRouter>
+
+        <div className='sidebar-container'>{isLoggedIn && <Sidebar />}</div>
+
+        <div className='content-container'>
+
           <Header isLoggedIn={isLoggedIn} />
-          <div className='sidebar-container'>{isLoggedIn && <Sidebar />}</div>
-          {isLoggedIn ? 
-          <Routes>
 
-            
-            <Route path='/addagent' element={<AddAgent/>} />
-            <Route path='/agentlist' element={<Agent/>} />
-            <Route path='/addcustomer' element={<AddCustomer/>} />
-            <Route path='/customerlist' element={<Customer/>} />
-            <Route path='/customerfiles' element={<CustomerFiles/>} />
-            <Route path='/customercheques' element={<CustomerCheques/>} />
-            <Route path='/mentor' element={<Mentor/>} />
-            <Route path='/' element={<Home/>} />
-            <Route path="*" element={<PageNotFound isLoggedIn={isLoggedIn} />} />
-         
-          </Routes>
-          :
-          <Routes>
-
-          <Route path='/login' element={<Home/>} />
-          <Route exact path="/" element={<Navigate to="/login" />} />
-          <Route path="*" element={<PageNotFound isLoggedIn={isLoggedIn} />} />
-       
-        </Routes>
-}    
-        </BrowserRouter>
-       
-      </div>
+          {isLoggedIn ?
+            <Routes>
+              <Route path='/addagent' element={<AddAgent />} />
+              <Route path='/agentlist' element={<Agent />} />
+              <Route path='/addcustomer' element={<AddCustomer />} />
+              <Route path='/customerlist' element={<Customer />} />
+              <Route path='/customerfiles' element={<CustomerFiles />} />
+              <Route path='/customercheques' element={<CustomerCheques />} />
+              <Route path='/mentor' element={<Mentor />} />
+              <Route path='/' element={<Home />} />
+              <Route path="*" element={<PageNotFound isLoggedIn={isLoggedIn} />} />
+            </Routes>
+            :
+            <Routes>
+              <Route path='/login' element={<Home />} />
+              <Route exact path="/" element={<Navigate to="/login" />} />
+              <Route path="*" element={<PageNotFound isLoggedIn={isLoggedIn} />} />
+            </Routes>
+          }
+        </div>
+      </BrowserRouter>
       <ToastContainer />
     </div>
   )
