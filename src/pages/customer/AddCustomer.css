@@ -3,7 +3,6 @@
  .add-customer-main-container {
   max-width: 500px;
   min-width: 300px;
-
   padding: 2rem;
   margin: 4rem auto;
   background: white;
@@ -12,15 +11,31 @@
 
 }
 
+.add-customer-main-container > div > a {
+  display: table;
+    margin-left: auto;
+}
+
+.add-customer-main-container > div > a > button {
+  margin-bottom: 10px;
+  border: none;
+  padding: 4px 12px;
+  background: #2ea7ff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .add-customer-main-container > form > div > label {
   font-size: 12px;
   font-weight: 600;
   color: #5a5a5a;
   margin-bottom: 6px;
-  margin-left: 300px;
+  /* margin-left: 300px; */
 }
 
-.add-customer-main-container > form > div > input {
+.add-customer-main-container > form > div > input,
+.add-customer-main-container > form > div > select {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -29,6 +44,13 @@
   outline-color: rgb(142 199 255);
   margin-bottom: 14px;
   margin-top: 4px;
+}
+
+.add-customer-main-container > form > div > input[type=checkbox] {
+  margin: 0;
+  width: auto;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .add-customer-main-container > form > button {
@@ -42,10 +64,5 @@
   font-size: 12px;
   font-weight: 600;
   width: 100%;
-<<<<<<< Updated upstream
   cursor: pointer;
 }
-=======
-}
-
->>>>>>> Stashed changes

@@ -1,0 +1,16 @@
+
+
+
+.customer-main-container {
+  margin: 0 24px;
+}
+
+.customer-main-container > div > a > button {
+  margin-bottom: 10px;
+  border: none;
+  padding: 4px 12px;
+  background: #2ea7ff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
