@@ -1,0 +1,61 @@
+.fof-main-container {
+  width: auto;
+  height: auto;
+  border-radius: 30px;
+  background-color: rgba(244, 243, 243, 1);
+  padding: 36px 30px;
+  position: relative;
+  margin-top: 4rem;
+}
+
+.fof-m-c-inner {
+  margin-bottom: 2rem;
+}
+
+.fof-m-c-i-error-code div,
+.fof-m-c-i-error-message div,
+.fofmciem-loged-in div,
+.fof-m-c-i-paragraph div,
+.fof-m-c-i-p div,
+.fof-m-c-i-btn {
+   font-weight: 700;
+   text-align: center;
+}
+
+
+.fof-m-c-i-error-code div {
+  font-size: 140px;
+  letter-spacing: -2px;
+  /* line-height: 72px; */
+  color: var(--primary-dim-black);
+}
+
+.fof-m-c-i-error-message div, .fofmciem-loged-in div {
+  font-size: 50px;
+  letter-spacing: -2px;
+  line-height: 72px;
+  color: var(--primary-dim-black);
+  margin: 0 8rem;
+}
+
+.fofmciem-loged-in div {
+  font-size: 36px;
+  margin: 0 60px;
+}
+
+.fof-m-c-i-paragraph div, .fof-m-c-i-p div  {
+  font-size: 20px;
+  margin: 15px 22rem;
+  color: var(--primary-gray);
+}
+
+.fof-m-c-i-p div {
+  margin: 15px 8rem;
+}
+
+.fof-m-c-i-btn button{
+  padding: 16px 22px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+}

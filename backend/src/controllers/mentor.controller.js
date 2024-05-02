@@ -9,17 +9,15 @@ exports.create = async (req, res) => {
   console.log(req.body);
   
   //res.status(500).send(req.fields);
-  if (!req.body.customer_id) {
+  if (!req.body.mentor_name) {
     res.status(400).send({
-      message: "Customer Id can not be empty!"
+      message: "Mentor Name can not be empty!"
     }); 
     return;
   }
   
   // Create a Salutation
   const mentor = {
-    customer_id: req.body.customer_id,
-    agent_id: req.body.agent_id,
     mentor_name: req.body.mentor_name,
     mobile: req.body.mobile,
   };

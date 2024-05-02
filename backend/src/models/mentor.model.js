@@ -5,15 +5,7 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true,
         primaryKey: true
       },
-      customer_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      agent_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      mentor_name: {
+       mentor_name: {
         type: Sequelize.STRING(30),
         allowNull: false
       },

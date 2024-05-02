@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import api from '../../utils/api';
-
+import {Link} from "react-router-dom";
+import { ActionButton }  from '../../components';
 const columns = [
 	{
 		name: 'Agent Name',
@@ -15,10 +16,7 @@ const columns = [
 		name: 'Alternate Mobile',
 		selector: row => row.mobile2,
 	},
-	{
-		name: 'Address',
-		selector: row => row.address,
-	},
+	
 	{
 		name: 'Aadhar No',
 		selector: row => row.aadhar_no,
@@ -27,23 +25,52 @@ const columns = [
 		name: 'PAN No',
 		selector: row => row.pan_no,
 	},
+	{
+		name: 'Action',
+		selector: row => row.action,
+	},
 
 ];
 
 
+
+
 function Agent() {
 	const [data, setData] = useState([]);
+
+	const editAction = (id) => {
+		console.log(id);
+	};
+
+	const deleteAction = async (id) => {
+		const response = await api.delete("/agents/" + id).then( async resp => {
+			fetchAgents();
+		});
+		console.log(response);
+	};
+
+	const fetchAgents = async () => {
+		const response = await api.get("/agents");
+		const items = [];
+		response.data.forEach((element,index) => {
+			element.action = <><ActionButton label={'Edit'} className={'btn-edit'} onClick={e => editAction(element.id)}  />
+			<ActionButton label={'Delete'} className={'btn-delete'} onClick={e => deleteAction(element.id)}  />
+			</>;
+
+			items.push(element);
+		});
+		setData(items);
+	};
+
 	useEffect(() => {
 
-		const fetchAgents = async () => {
-			const response = await api.get("/agents");
-			setData(response.data);
-		};
+		
 		fetchAgents();
 	}, [])
 
 	return (
 		<div>
+			<div><Link to="/addagent"><button type='button' >Add Agent</button></Link></div>
 			{data.length > 0 ?
 				<DataTable
 					columns={columns}

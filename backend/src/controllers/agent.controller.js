@@ -134,7 +134,7 @@ exports.delete = (req, res) => {
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "Agent deleted successfully!"
+          message: "Agent deleted successfully!",       
         });
       } else {
         res.send({

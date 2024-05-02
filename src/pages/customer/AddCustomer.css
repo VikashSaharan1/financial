@@ -3,11 +3,13 @@
  .add-customer-main-container {
   max-width: 500px;
   min-width: 300px;
+
   padding: 2rem;
   margin: 4rem auto;
   background: white;
   border-radius: 12px;
   box-shadow: 0 0 24px 0px #00000020;
+
 }
 
 .add-customer-main-container > form > div > label {
@@ -15,6 +17,7 @@
   font-weight: 600;
   color: #5a5a5a;
   margin-bottom: 6px;
+  margin-left: 300px;
 }
 
 .add-customer-main-container > form > div > input {
@@ -39,5 +42,10 @@
   font-size: 12px;
   font-weight: 600;
   width: 100%;
+<<<<<<< Updated upstream
   cursor: pointer;
 }
+=======
+}
+
+>>>>>>> Stashed changes

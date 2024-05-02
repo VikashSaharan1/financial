@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import api from '../../utils/api';
 import validateFields from '../../utils/validation';
 import { showToastMessage } from '../../components';
@@ -6,8 +8,8 @@ import './AddCustomer.css';
 
 const CustomerCheques = () => {
 
+  const navigate = useNavigate();
   const [customerCheques, setCustomerCheques] = useState({
-    "customer_name": "",
     "cheque_no": "",
     "bank_name": "",
     "ifsc_code": "",
@@ -17,7 +19,6 @@ const CustomerCheques = () => {
     event.preventDefault();
     try {
       const fields = [
-        { value: customerCheques.customer_name, validationType: 'required', keyName: 'Customer Name' },
         { value: customerCheques.cheque_no, validationType: 'required', keyName: 'Cheque No' },
         { value: customerCheques.bank_name, validationType: 'required', keyName: 'Bank Name' },
         { value: customerCheques.ifsc_code, validationType: 'required', keyName: 'IFSC Code' },
@@ -25,9 +26,10 @@ const CustomerCheques = () => {
       ];
       //   console.log(validateFields(fields)); // Output: true
       if (validateFields(fields)) {
-        // await api.post('/customers', customer).then(async (resp) => {
-        //     showToastMessage("Customer SuccessFully saved", "success");
-        // });
+        await api.post('/customer-cheques', customerCheques).then(async (resp) => {
+            showToastMessage("Customer SuccessFully saved", "success");
+            navigate("/customerlist");
+        });
       }
 
     } catch (error) {
@@ -42,15 +44,13 @@ const CustomerCheques = () => {
     setCustomerCheques({ ...customerCheques, [keyName]: val });
   };
 
+  
   return (
     <div className='add-customer-main-container'>
-      <form onSubmit={e => submitCustomerCheques(e)}>
+      <div><Link to="/customerlist"><button type='button' >Customer List</button></Link></div>
+      <form onSubmit={e => submitCustomerCheques(e)}>      
         <div>
-          <label>Customer Name</label>
-          <input type='text' name="customer_name" id="customer_name" required value={customerCheques.customer_name} onChange={event => handleChange(event, 'customer_name')} />
-        </div>
-        <div>
-          <label>File Amount</label>
+          <label>Cheque No</label>
           <input type='number' name="cheque_no" id="cheque_no" required value={customerCheques.cheque_no} onChange={event => handleChange(event, 'cheque_no')} />
         </div>
         <div>
@@ -59,7 +59,7 @@ const CustomerCheques = () => {
         </div>
         <div>
           <label>IFSC Code</label>
-          <input type='number' name="ifsc_code" id="ifsc_code" required value={customerCheques.ifsc_code} onChange={event => handleChange(event, 'ifsc_code')} />
+          <input type='text' name="ifsc_code" id="ifsc_code" required value={customerCheques.ifsc_code} onChange={event => handleChange(event, 'ifsc_code')} />
         </div>
         <button type='submit'>Submit</button>
       </form>

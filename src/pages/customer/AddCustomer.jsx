@@ -1,10 +1,12 @@
 import React, { useEffect, useState} from 'react'
+import { useNavigate, Link } from "react-router-dom";
 import api from '../../utils/api';
 import validateFields from '../../utils/validation';
 import { showToastMessage } from '../../components';
 import './AddCustomer.css';
 
 function AddCustomer() {
+    const navigate = useNavigate();
     const [customer, setCustomer] = useState({
         "customer_name":"",
         "mobile":"",
@@ -15,7 +17,7 @@ function AddCustomer() {
         "is_cheque": false,
         "no_of_cheque": 0
     });
-    const submitAgent = async (event) => {
+    const submitCustomer = async (event) => {
         event.preventDefault();
         try {
              const fields = [
@@ -29,6 +31,7 @@ function AddCustomer() {
           if (validateFields(fields)) {
             await api.post('/customers', customer).then(async (resp) => {
                 showToastMessage("Customer SuccessFully saved", "success");
+                navigate("/customerlist")
             });
           }
 
@@ -52,7 +55,10 @@ function AddCustomer() {
     };
   return (
     <div className='add-customer-main-container'>
-        <form onSubmit={e => submitAgent(e)}>
+        <div><Link to="/customerlist"><button type='button' >Customer List</button></Link></div>
+        <form onSubmit={e => submitCustomer(e)}>
+        
+        
             <div>
                 <label>Customer Name</label>
                 <input type='text' name="customer_name" id="customer_name" required value={customer.customer_name} onChange={event => handleChange(event, 'customer_name')}  />
@@ -82,12 +88,13 @@ function AddCustomer() {
                 <input type='checkbox' name="is_cheque" id="is_cheque"   onChange={event => handleChange(event, 'is_cheque')}  />
             </div>
             { customer.is_cheque?<div>
-                <label>Is Cheque</label>
+                <label>No of Cheque</label>
                 <input type='number' name="no_of_cheque" id="no_of_cheque"  onChange={event => handleChange(event, 'no_of_cheque')}  />
             </div>:null}
             <button type='submit'>Submit</button>
         </form>
     </div>
+    
   )
 }
 

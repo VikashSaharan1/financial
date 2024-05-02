@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import { SidebarPV } from '../../components';
 import SidebarElem from "./SidebarElem.json";
@@ -17,7 +18,10 @@ const Sidebar = () => {
                   <div>
                     <i className={elem.icon}></i>
                   </div>
-                  <span>{elem.name}</span>
+                  <Link to={elem.link}>
+                    <span>{elem.name}</span>
+                  </Link>
+                  
                   {
                     elem.more && <span className='down-arrow'>
                       <i class="fa-solid fa-chevron-down"></i>

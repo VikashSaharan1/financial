@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Header.css";
 
-const Header = () => {
+const Header = ({isLoggedIn}) => {
   return (
     <div className='header-main-container'>
       <div className='h-m-c-inner'>

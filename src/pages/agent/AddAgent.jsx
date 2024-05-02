@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate, Link } from "react-router-dom";
 import api from '../../utils/api';
 import validateFields from '../../utils/validation';
 import { showToastMessage } from '../../components';
 import './AddAgent.css';
 
 function AddAgent() {
+    const navigate = useNavigate();
     const [agent, setAgent] = useState({
         "agent_name": "",
         "mobile": "",
@@ -27,7 +29,9 @@ function AddAgent() {
             if (validateFields(fields)) {
                 await api.post('/agents', agent).then(async (resp) => {
                     showToastMessage("Agent SuccessFully saved", "success");
+                    navigate("/agentlist");
                 });
+
             }
 
         } catch (error) {
@@ -45,6 +49,7 @@ function AddAgent() {
     };
     return (
         <div className='add-agent-main-container'>
+            <div><Link to="/agentlist"><button type='button' >Agent List</button></Link></div>
             <form onSubmit={e => submitAgent(e)}>
                 <div>
                     <label>Agent Name</label>

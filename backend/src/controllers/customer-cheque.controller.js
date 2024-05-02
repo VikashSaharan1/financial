@@ -9,7 +9,7 @@ exports.create = async (req, res) => {
   console.log(req.body);
   
   //res.status(500).send(req.fields);
-  if (!req.body.customer_id) {
+  if (!req.body.cheque_no) {
     res.status(400).send({
       message: "Customer Id can not be empty!"
     }); 
@@ -20,7 +20,6 @@ exports.create = async (req, res) => {
 
   // Create a Salutation
   const customer_cheque = {
-    customer_id: req.body.customer_id,
     cheque_no: req.body.cheque_no,
     bank_name: req.body.bank_name,
     ifsc_code: req.body.ifsc_code,

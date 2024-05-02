@@ -2,14 +2,18 @@ import React, { useEffect, useState } from 'react'
 import api from '../../utils/api';
 import validateFields from '../../utils/validation';
 import { showToastMessage } from '../../components';
+import { Link } from 'react-router-dom';
 import './AddCustomer.css';
 
 const CustomerFiles = () => {
-
+  const [customers, setCustomers] = useState([]);
+  const [agents, setAgents] = useState([]);
+  const [mentors, setMentors] = useState([]);
   const [customerFiles, setCustomerFiles] = useState({
-    "customer_name": "",
+    "customer_id": "",
     "file_amount": "",
-    "agent_name": "",
+    "agent_id": "",
+    "mentor_id": "",
     "credit_amount": "",
     "no_of_days": "",
     "interest": "",
@@ -21,17 +25,21 @@ const CustomerFiles = () => {
     event.preventDefault();
     try {
       const fields = [
-        { value: customer.customer_name, validationType: 'required', keyName: 'Customer Name' },
-        { value: customer.file_amount, validationType: 'required', keyName: 'File Amount' },
-        { value: customer.agent_name, validationType: 'required', keyName: 'Agent Name' },
-        { value: customer.credit_amount, validationType: 'required', keyName: 'Credit Amount' },
+        { value: customerFiles.customer_id, validationType: 'required', keyName: 'Customer Name' },
+        { value: customerFiles.file_amount, validationType: 'required', keyName: 'File Amount' },
+        { value: customerFiles.agent_id, validationType: 'required', keyName: 'Agent Name' },
+        { value: customerFiles.mentor_id, validationType: 'required', keyName: 'Gaurenter Name' },
+        { value: customerFiles.credit_amount, validationType: 'required', keyName: 'Credit Amount' },
+        { value: customerFiles.no_of_days, validationType: 'required', keyName: 'No Of Days' },
+        { value: customerFiles.interest, validationType: 'required', keyName: 'Interest' },
+        { value: customerFiles.agent_commission, validationType: 'required', keyName: 'Agent Commission' },
 
       ];
       //   console.log(validateFields(fields)); // Output: true
       if (validateFields(fields)) {
-        // await api.post('/customers', customer).then(async (resp) => {
-        //     showToastMessage("Customer SuccessFully saved", "success");
-        // });
+        await api.post('/customer-files', customerFiles).then(async (resp) => {
+            showToastMessage("Customer Files SuccessFully saved", "success");
+        });
       }
 
     } catch (error) {
@@ -43,24 +51,73 @@ const CustomerFiles = () => {
 
   const handleChange = (event, keyName) => {
     let val = event.target.value;
+    console.log(val);
     setCustomerFiles({ ...customerFiles, [keyName]: val });
   };
 
+  useEffect(() =>{
+    const fetchCustomers = async () => {
+      const response = await api.get("/customers");
+      setCustomers(response.data);        
+    };
+    const fetchAgents = async () => {
+      const response = await api.get("/agents");
+      setAgents(response.data);        
+    };
+    const fetchMentors = async () => {
+      const response = await api.get("/mentors");
+      setMentors(response.data);        
+    };
+    fetchCustomers();
+    fetchAgents();
+    fetchMentors();
+  }, []);
+
   return (
     <div className='add-customer-main-container'>
+      <div><Link to="/customerlist"><button type='button' >Customer List</button></Link></div>
       <form onSubmit={e => submitCustomerFiles(e)}>
         <div>
           <label>Customer Name</label>
-          <input type='text' name="customer_name" id="customer_name" required value={customerFiles.customer_name} onChange={event => handleChange(event, 'customer_name')} />
+          <select name="customer_name" id="customer_name" required onChange={e => handleChange(e, 'customer_id')}>
+            <option value="0">Select Customer Name</option>
+            {
+              customers.length > 0 && customers.map((customer)=>{
+                  return <option value={customer.id}>{customer.customer_name}</option>
+              })
+              
+            }
+          </select>
+        </div>
+        <div>
+          <label>Agent Name</label>
+          <select name="agent_name" id="agent_name" required onChange={e => handleChange(e, 'agent_id')}>
+          <option value="0">Select Agent Name</option>
+            {
+              agents.length > 0 && agents.map((agent)=>{
+                  return <option value={agent.id}>{agent.agent_name}</option>
+              })
+              
+            }
+          </select>
+        </div>
+        <div>
+          <label>Gaurenter</label>
+          <select name="mentor_name" id="mentor_name" required onChange={e => handleChange(e, 'mentor_id')}>
+          <option value="0">Select Gaurenter Name</option>
+            {
+              mentors.length > 0 && mentors.map((mentor)=>{
+                  return <option value={mentor.id}>{mentor.mentor_name}</option>
+              })
+              
+            }
+          </select>
         </div>
         <div>
           <label>File Amount</label>
           <input type='number' name="file_amount" id="file_amount" required value={customerFiles.file_amount} onChange={event => handleChange(event, 'file_amount')} />
         </div>
-        <div>
-          <label>Agent Name</label>
-          <input type='text' name="	agent_name" id="agent_name" value={customerFiles.agent_name} onChange={event => handleChange(event, 'agent_name')} />
-        </div>
+       
         <div>
           <label>Credit Amount</label>
           <input type='number' name="credit_amount" id="credit_amount" required value={customerFiles.credit_amount} onChange={event => handleChange(event, 'credit_amount')} />
@@ -87,4 +144,4 @@ const CustomerFiles = () => {
   )
 }
 
-export default CustomerFiles
+export default CustomerFiles;

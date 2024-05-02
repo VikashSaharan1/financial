@@ -1,0 +1,25 @@
+
+
+.page-not-found-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.p-n-f-c-img {
+  width: 600px;
+  height: 440px;
+  position: absolute;
+  right: -7rem;
+  bottom: -16px;
+  z-index: -1;
+}
+
+.p-n-f-c-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+

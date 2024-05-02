@@ -5,10 +5,6 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true,
         primaryKey: true
       },
-      customer_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
       cheque_no: {
         type: Sequelize.STRING(10),
         allowNull: false
